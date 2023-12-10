@@ -1,0 +1,7 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Estado padrão (não selecionado) -->
+    <item android:color="@android:color/holo_blue_dark" android:state_checked="false" />
+
+    <!-- Estado selecionado -->
+    <item android:color="@android:color/holo_orange_dark" android:state_enabled="true" />
+</selector>

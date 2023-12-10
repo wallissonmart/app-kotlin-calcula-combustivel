@@ -2,9 +2,9 @@ package com.example.calculacombustivel
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.Fragment
 import com.example.calculacombustivel.databinding.ActivityMainBinding
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
@@ -12,31 +12,32 @@ class MainActivity : AppCompatActivity() {
     private val gasolinaEtanolFragment = GasolinaEtanolFragment()
     private lateinit var binding: ActivityMainBinding
 
-    private val onNavigationItemSelectedListener =
-        BottomNavigationView.OnNavigationItemSelectedListener { item ->
-            when (item.itemId) {
-                binding.menuHome.id -> {
-                    switchFragment(homeFragment)
-                    return@OnNavigationItemSelectedListener true
-                }
-                binding.menuGasolinaEtanol.id -> {
-                    switchFragment(gasolinaEtanolFragment)
-                    return@OnNavigationItemSelectedListener true
-                }
-            }
-            false
-        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val bottomNavigationView: BottomNavigationView = binding.bottomNavigationView
-        bottomNavigationView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
-
-        // Define o fragment inicial
+        onNavigationItemSelectedListener()
         switchFragment(homeFragment)
+    }
+
+    private fun onNavigationItemSelectedListener() {
+        binding.bottomNavigationView.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+
+                R.id.menuHome -> {
+                    switchFragment(homeFragment)
+                    return@setOnItemSelectedListener true
+                }
+
+                R.id.menuGasolinaEtanol -> {
+                    switchFragment(gasolinaEtanolFragment)
+                    return@setOnItemSelectedListener true
+                }
+            }
+            false
+        }
     }
 
     private fun switchFragment(fragment: Fragment) {
