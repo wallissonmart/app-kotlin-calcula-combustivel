@@ -2,7 +2,6 @@ package com.example.calculacombustivel
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.Fragment
 import com.example.calculacombustivel.databinding.ActivityMainBinding
 
