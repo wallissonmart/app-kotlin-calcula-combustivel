@@ -32,7 +32,6 @@ class GasolinaEtanolFragment : Fragment() {
     }
 
     private fun setupListeners() {
-
         binding.buttonLimpar.setOnClickListener {
             binding.editTextGasolina.editableText.clear()
             binding.editTextEtanol.editableText.clear()

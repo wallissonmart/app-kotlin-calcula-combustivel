@@ -11,7 +11,6 @@ class MainActivity : AppCompatActivity() {
     private val gasolinaEtanolFragment = GasolinaEtanolFragment()
     private lateinit var binding: ActivityMainBinding
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -24,7 +23,6 @@ class MainActivity : AppCompatActivity() {
     private fun onNavigationItemSelectedListener() {
         binding.bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
-
                 R.id.menuHome -> {
                     switchFragment(homeFragment)
                     return@setOnItemSelectedListener true
